@@ -137,7 +137,7 @@ const TaskComponent = () => {
 
         <div className=" w-100">
             {tasks?.map((v, i) => v.name === "" ?
-               <div></div>: <TaskItem v={v} i={i} />
+               <div key={i}></div>: <TaskItem key={i} v={v} i={i} />
             )}
         </div>
 

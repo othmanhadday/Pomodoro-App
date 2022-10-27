@@ -4,8 +4,7 @@ import {Card, CardBody} from "reactstrap";
 import StartWorkComponent from "./timer/StartWorkComponent";
 import ShortBreakComponent from "./timer/ShortBreakComponent";
 import LongBreakComponent from "./timer/LongBreakComponent";
-import Test1 from "./timer/test1";
-import Test2 from "./timer/test2";
+
 
 const time = {
     w: 5,
@@ -14,13 +13,13 @@ const time = {
 }
 
 const TimerComponent = (props) => {
-
+    console.log(process.env.REACT_APP_LOCAL_URL+":"+process.env.REACT_APP_PORT+"/audios/winfretless.mp3")
     const [type, setType] = useState('w');
     const [lbreakEstim, setLbreakEstim] = useState(3);
     const [start, setStart] = useState(false);
     const [seconds, setSeconds] = useState(time.w);
     const ref = useRef(true);
-    const [audio, setAudio] = useState(new Audio("/audios/winfretless.mp3"));
+    const [audio, setAudio] = useState(new Audio(process.env.REACT_APP_LOCAL_URL+":"+process.env.REACT_APP_PORT+"/audios/winfretless.mp3"));
     const tick = useRef();
 
 
@@ -107,7 +106,7 @@ const TimerComponent = (props) => {
 
 
     return (<div>
-        <Card className="text-center border-0 rounded-0" >
+        <Card className="text-center border-0 rounded-0 " >
             <CardBody id="crd_body" className="" >
 
                 <div className="btn-group btn-group-lg rounded-0 w-100 opacity-100" role="group"
